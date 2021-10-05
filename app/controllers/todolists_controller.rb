@@ -38,8 +38,10 @@ class TodolistsController < ApplicationController
     if @list.save
       redirect_to todolist_path(@list.id)
     else
-      render :new
+      render
+      
     end
+  end
   
   private
   #ストロングパラメータ
