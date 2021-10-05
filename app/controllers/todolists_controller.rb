@@ -33,12 +33,18 @@ class TodolistsController < ApplicationController
     
   end
   
+  def destroy
+    list = List.find(params[:id])
+    list.destroy
+    redirect_to todolists_path
+  end
+  
   def create
     @list = List.new(list_params)
     if @list.save
       redirect_to todolist_path(@list.id)
     else
-      render
+      render :new
       
     end
   end
